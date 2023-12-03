@@ -1,6 +1,5 @@
 import regex
 import math { max }
-import common as c
 
 struct Game {
 mut:
@@ -59,7 +58,17 @@ fn parse_line(line string) Game {
         return game
 }
 
+fn read_example(n int, letter string) !string {
+    filename := './inputs/example${n:02}${letter}'
+    return os.read_file(filename)
+}
+
+fn read_input(n int) !string {
+    filename := './inputs/input${n:02}'
+    return os.read_file(filename)
+}
+
 fn main() {
-        println(part_one(c.read_input(2)!))
-        println(part_two(c.read_input(2)!))
+        println(part_one(read_input(2)!))
+        println(part_two(read_input(2)!))
 }

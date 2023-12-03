@@ -1,4 +1,3 @@
-import common as c
 import arrays
 
 fn part_one(data string) !int {
@@ -76,7 +75,17 @@ fn parse_input(data string, number_map map[string]int) []int {
         return nums
 }
 
+fn read_example(n int, letter string) !string {
+    filename := './inputs/example${n:02}${letter}'
+    return os.read_file(filename)
+}
+
+fn read_input(n int) !string {
+    filename := './inputs/input${n:02}'
+    return os.read_file(filename)
+}
+
 fn main() {
-        println(part_one(c.read_input(1)!)!)
-        println(part_two(c.read_input(1)!)!)
+        println(part_one(read_input(1)!)!)
+        println(part_two(read_input(1)!)!)
 }
