@@ -13,7 +13,7 @@ def example(n: int, x: str) -> str:
     return open("inputs/example{n:02d}{x}".format(n=n, x=x)).read()
 
 
-def ints(data: str) -> tuple:
+def ints(data: str) -> tuple[int]:
     """Return a tuple of ints from a string"""
     return tuple(int(x) for x in re.findall(r"[-+]?\d+", data))
 
