@@ -1,6 +1,7 @@
 from functools import partial
 from itertools import islice
 from collections import deque
+from typing import Any
 import re
 
 
@@ -65,12 +66,12 @@ def print_grid(g):
         print("")
 
 
-def bfs(graph: dict[str, list[str]], start: str, end: str) -> int:
+def bfs(graph: dict[Any, list[Any]], start: Any, end: Any) -> int:
     q = deque([(start, 0)])
     seen = set()
     while len(q) > 0:
         next_node, cost = q.popleft()
-        if next_node == end:
+        if next_node == end and len(seen) > 0:
             return cost
         for v in graph[next_node]:
             if v not in seen:
